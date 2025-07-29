@@ -1,11 +1,8 @@
-'use client';
+"use client";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 import Link from "next/link";
 import Image from "next/image";
@@ -28,8 +25,7 @@ export default function SignUpPage() {
     e.preventDefault();
     setErrorMsg("");
 
-    const passwordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
 
     if (!passwordRegex.test(password)) {
       setErrorMsg(
@@ -45,14 +41,20 @@ export default function SignUpPage() {
 
     try {
       setIsLoading(true);
-      const userCred = await createUserWithEmailAndPassword(auth, email, password);
+      const userCred = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       await updateProfile(userCred.user, {
         displayName: `${firstName} ${lastName}`,
       });
       router.push("/");
     } catch (err: any) {
       if (err.code === "auth/email-already-in-use") {
-        setErrorMsg("This email is already registered. Please sign in instead.");
+        setErrorMsg(
+          "This email is already registered. Please sign in instead."
+        );
       } else {
         setErrorMsg(err.message);
       }
@@ -68,14 +70,16 @@ export default function SignUpPage() {
           src="/Sign.jpg"
           alt="Background"
           fill
-          style={{ objectFit: 'cover', opacity: 0.6 }}
+          style={{ objectFit: "cover", opacity: 0.6 }}
           priority
         />
       </div>
 
       <div className="flex justify-center items-start pt-12 pb-12">
         <div className="w-full max-w-sm p-8 border rounded shadow bg-white bg-opacity-75">
-          <h2 className="text-xl text-blue-600 font-bold mb-4 text-center">Create an Account</h2>
+          <h2 className="text-xl text-blue-600 font-bold mb-4 text-center">
+            Create an Account
+          </h2>
 
           <form onSubmit={handleEmailSignUp} className="space-y-4">
             <input
@@ -148,7 +152,9 @@ export default function SignUpPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full py-2 rounded ${isLoading ? "bg-gray-400" : "bg-blue-600 text-white"}`}
+              className={`w-full py-2 rounded ${
+                isLoading ? "bg-gray-400" : "bg-blue-600 text-white"
+              }`}
             >
               {isLoading ? "Signing Up..." : "Sign Up"}
             </button>
