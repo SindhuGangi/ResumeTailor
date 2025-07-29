@@ -1,0 +1,44 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+dist/
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS & Editor junk
+.DS_Store
+.vscode/
+.idea/
+
+# Test coverage
+coverage/
+
+# Cache & linting artifacts
+.cache/
+.eslintcache
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Firebase (optional)
+.firebase/
+firebase-debug.log
+.firebaserc
+
+# Tailwind JIT cache (optional)
+.tailwind/
+
+# Optional: Svelte or Vite cache (if added later)
+.svelte-kit/
+vite.config.ts
