@@ -7,13 +7,16 @@ import { toZonedTime } from "date-fns-tz";
 export default function Saved(){
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("new");
-  const [editingId, setEditingId] = useState<number | null>(null);
+   const [editingId, setEditingId] = useState<number | null>(null);
+  const [editedTitle, setEditedTitle] = useState("");
+ 
 
-  const resumes = [
+  const [resumes, setResumes] = useState([
     { id: 1, title: "Software Engineer – Google", date: "2025-07-22", atsScore: 92 },
     { id: 2, title: "Frontend Developer – Amazon", date: "2025-07-22", atsScore: 88 },
     { id: 3, title: "Backend Engineer – Microsoft", date: "2025-07-22", atsScore: 80 },
-  ];
+  ]);
+  
   const istTimeZone = "Asia/Kolkata";
 const currentISTDate = toZonedTime(new Date(), istTimeZone);
 const formattedDateTime = format(currentISTDate, "EEEE, dd MMMM yyyy, hh:mm a"); 
@@ -52,7 +55,6 @@ const formattedDateTime = format(currentISTDate, "EEEE, dd MMMM yyyy, hh:mm a");
           <option value="old">Sort: Old → New</option>
         </select>
       </div>
-
       {/* Resume Cards */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {filteredResumes.length === 0 ? (
@@ -83,6 +85,65 @@ const formattedDateTime = format(currentISTDate, "EEEE, dd MMMM yyyy, hh:mm a");
 
               {/* Buttons */}
               {editingId === resume.id ? (
+  <div className="space-y-2">
+    {/* Editable Input */}
+    <input
+      type="text"
+      value={editedTitle}
+      onChange={(e) => setEditedTitle(e.target.value)}
+      className="w-full px-3 py-2 border rounded"
+    />
+
+    <div className="flex space-x-4 justify-between">
+      <button
+        onClick={() => setEditingId(null)} // cancel editing
+        className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+      >
+        Cancel
+      </button>
+      <button
+        onClick={() => {
+          setResumes(
+            resumes.map((r) =>
+              r.id === resume.id ? { ...r, title: editedTitle } : r
+            )
+          );
+          setEditingId(null); // exit editing mode
+        }}
+        className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+) : (
+  <div className="flex space-x-4 justify-between">
+    <button
+      onClick={() => {
+        setEditingId(resume.id);
+        setEditedTitle(resume.title); // fill input with current title
+      }}
+      className="px-4 py-2 bg-yellow-400 text-black rounded hover:bg-yellow-500"
+    >
+      Edit
+    </button>
+    <button
+      onClick={() => alert("Downloading Resume...")}
+      className="px-8 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+    >
+      Download
+    </button>
+    <button
+      onClick={() =>
+        alert("Are you sure you want to delete this resume?")
+      }
+      className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+    >
+      Delete
+    </button>
+  </div>
+)}
+              {/* {editingId === resume.id ? (
                 <div className="flex space-x-4 justify-between">
                   <button
                     onClick={() => alert("Undo changes")}
@@ -124,7 +185,7 @@ const formattedDateTime = format(currentISTDate, "EEEE, dd MMMM yyyy, hh:mm a");
                     Delete
                   </button>
                 </div>
-              )}
+              )} */}
             </div>
           ))
         )}

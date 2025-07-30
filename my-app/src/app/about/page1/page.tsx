@@ -1,4 +1,14 @@
 import Image from "next/image";
+import {
+  FaReact,
+  FaNodeJs,
+} from "react-icons/fa";
+import { ImPower } from "react-icons/im";
+import {
+  SiTailwindcss,
+  SiExpress,
+  SiOpenai,
+} from "react-icons/si";
 
 export default function About() {
   return (
@@ -15,7 +25,7 @@ export default function About() {
       </p>
 
       {/* Why Resume Tailor */}
-      <section className="flex justify-center items-center py-4">
+      <section className="flex justify-center items-center py-4 mb-4">
         <div className="relative w-full max-w-4xl p-4 sm:p-6 md:p-10 rounded-3xl shadow-xl text-white bg-[linear-gradient(93deg,_#240bb5_0.55%,_#00ccea_119.94%)]">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-center font-inter">
             Why Resume Tailor?
@@ -28,74 +38,109 @@ export default function About() {
           </p>
         </div>
       </section>
-<div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-200 px-4 sm:px-6 gap-6">
-        {/* Vision */}
-        <div className="bg-white text-gray rounded-r-full w-full md:w-1/3 p-4 flex flex-col items-center text-center shadow-lg mb-10 md:mb-60"
-          style={{ height: 250 }}>
-          <div className="w-16 h-16 border-2 border-[#1b56fd] rounded-full flex items-center justify-center mb-4">
-            <Image
-              src="/vision.svg"
-              alt="Vision Icon"
-              width={45}
-              height={45}
-              style={{
-                border: "2px solid #1b56fd",
-                padding: "2px",
-                borderRadius: "50%",
-              }}
-            />
-          </div>
-          <h2 className="text-3xl sm:text-xl md:text-2xl font-bold">Vision</h2>
-          <p className="text-sm sm:text-base md:text-md px-8 sm:px-8 mb-16 md:mb-40 font-arial-black">
-            To become the largest website design firm by empowering innovative
-            thinking to establish ourselves as a worldwide recognized company by
-            offering the highest standard services,solutions.
-          </p>
-        </div>
+ <div className="flex flex-col md:flex-row justify-center  bg-gray-200 px-4 sm:px-6 gap-6 mt-20"> 
+  {/* Vision */}
+  <div className="bg-white text-gray rounded-r-full w-full md:w-1/3 p-4 flex flex-col items-center text-center shadow-lg mb-20 md:mb-60"
+    style={{ height: 300 }}>
+    <div className=" border-2 border-[#1b56fd] rounded-full flex items-center justify-center mb-4 bg-black-200">
+      <Image
+        src="/image.png"
+        alt="Vision Icon"
+        width={45}
+        height={45}
+        className="object-contain"
+      />
+    </div>
+    <h2 className="text-3xl sm:text-xl md:text-2xl font-bold">Vision</h2>
+    <p className="text-sm sm:text-base md:text-md px-8 sm:px-8 mb-14 md:mb-40 font-arial-black">
+      To become the largest website design firm by empowering innovative
+      thinking to establish ourselves as a worldwide recognized company by
+      offering the highest standard services and solutions.
+    </p>
+  </div>
+  <div className="relative flex justify-center items-center rounded-[60%] bg-gray-100 overflow-hidden shadow-2xl sm:w-[30rem] sm:h-[34rem] md:w-1/3 h-[34rem]">
+    {/* <div className="rounded-full flex justify-center items-center overflow-hidden shadow-2xl sm:w-[30rem] sm:h-[34rem]"> */}
+      <Image
+        src="/mv.jpg"
+        alt="Team"
+        width={200}
+        height={500}
+        className="object-cover w-full h-300"
+      />
+    </div>
+  {/* </div> */}
+  {/* Mission */}
+<div className="bg-gray-900 text-white rounded-l-full w-full  md:w-1/3 p-8 flex flex-col items-center text-center shadow-lg mt-10 md:mt-60"
+  style={{ height: 300 }}>
+  <div className="border-2 border-[#1b56fd] rounded-full flex items-center justify-center  bg-white">
+    <Image
+      src="/mission icon.png"
+      alt="Mission Icon"
+      width={45}
+      height={45}
+      className="object-contain w-10 h-10"
+    />
+  </div>
+  <h2 className="text-3xl sm:text-xl md:text-2xl font-bold ">Mission</h2>
+  <p className="text-sm sm:text-base md:text-md sm:px-8 mb-16 md:mb-40 font-arial-white">
+    {/* To provide customer-centric, result-oriented, cost-competitive,
+    innovative, and functional IT solutions to our valuable worldwide
+    customers. */}
+    "Our mission is to simplify the resume creation process by providing smart, customizable resumes powered by modern design principles. We aim to help job seekers craft impactful resumes that stand out, highlight strengths, and accelerate their career success."
+  </p>
+</div>
+</div>
 
-        {/* Middle Image */}
-        <div className="relative flex justify-center items-center w-full md:w-1/3 border-4 border-black ">
-          <div className="rounded-full bg-gray-200 flex justify-center items-center overflow-hidden shadow-2xl w-64 h-64 sm:w-72 sm:h-72 md:w-full md:h-full">
-            <Image
-              src="/mv.jpg"
-              alt="Team"
-              width={350}
-              height={600}
-              className="object-contain"
-            />
-          </div>
-        </div>
+{/* Tech Stack */}
+<section className="py-10 px-4 bg-gradient-to-br from-[#1a1a40] to-[#1a0033] text-white mt-20">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-5xl  font-heading text-center mb-10 text-purple-400 ">
+      Tech Stack
+    </h2>
 
-        {/* Mission */}
-        <div className="bg-gray-900 text-white rounded-l-full w-full md:w-1/3 p-4 flex flex-col items-center text-center shadow-lg mt-10 md:mt-60"
-          style={{ height: 250 }}>
-          <div className="w-16 h-16 border-2 border-[#1b56fd] rounded-full flex items-center justify-center mb-4">
-            <Image
-              src="/mission.png"
-              alt="Mission Icon"
-              width={45}
-              height={45}
-              style={{
-                border: "2px solid #1b56fd",
-                padding: "2px",
-                borderRadius: "50%",
-              }}
-            />
-          </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Mission</h2>
-          <p className="text-sm sm:text-base md:text-md px-4 sm:px-6 mb-10 md:mb-20">
-            To provide customer-centric, result-oriented, cost-competitive,
-            innovative, and functional IT solutions to our valuable worldwide
-            customers.
-          </p>
-        </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+      {/* React */}
+      <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-pink-500 hover:shadow-lg transition">
+        <FaReact className="text-5xl text-pink-500" />
+        <span className="text-lg">React.js</span>
       </div>
 
-     
+      {/* Next */}
+      <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-yellow-400 hover:shadow-lg transition">
+        <ImPower className="text-5xl text-yellow-400" />
+        <span className="text-lg">Next.js</span>
+      </div>
 
-      {/* Tech Stack */}
-      <section className="py-12 px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-indigo-700 mb-8">
+      {/* Tailwind */}
+      <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-blue-400 hover:shadow-lg transition">
+        <SiTailwindcss className="text-5xl text-blue-400" />
+        <span className="text-lg">Tailwind CSS</span>
+      </div>
+
+      {/* Node */}
+      <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-green-500 hover:shadow-lg transition">
+        <FaNodeJs className="text-5xl text-green-500" />
+        <span className="text-lg">Node.js</span>
+      </div>
+
+      {/* Express */}
+      <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-purple-400 hover:shadow-lg transition">
+        <SiExpress className="text-5xl text-purple-400" />
+        <span className="text-lg">Express.js</span>
+      </div>
+
+      {/* OpenAI */}
+      <div className="flex items-center gap-3 px-6 py-3 rounded-xl border border-pink-400 hover:shadow-lg transition">
+        <SiOpenai className="text-5xl text-pink-400" />
+        <span className="text-lg">OpenAI API</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      {/* <section className="py-12 px-4">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-indigo-700 mb-10">
           Tech Stack
         </h2>
         <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-8 md:gap-x-16 text-center">
@@ -138,7 +183,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Privacy Policy */}
       <section className="my-12 px-4">

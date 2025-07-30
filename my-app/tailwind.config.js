@@ -5,8 +5,12 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        heading: ['"Orbitron"', 'sans-serif'],
+         // You can rename 'heading' to anything
+      },
+    },
   },
   plugins: [],
 }
-
